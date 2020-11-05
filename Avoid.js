@@ -29,9 +29,6 @@ function avoidGame() {
     }
   }
 
-  if(key == 'h')
-    selection = 0;
-
   if(gameover == 1) {
     background(0);
     textSize(65);
@@ -39,6 +36,11 @@ function avoidGame() {
     text("GAME OVER", 320, 180);
     textSize(20);
     text("Press 'h' to go to main page", 320, 250);
+  }
+
+  if(key == 'h') {
+    selection = 0;
+    gameover = 0;
   }
 
   if((frameCount-now) % 60 == 0)
