@@ -52,13 +52,15 @@ function draw() {
     fill(255);
     textAlign(CENTER, CENTER);
     textSize(60);
-    text("Mover and Attractor", 320, 100);
+    textFont("Orbit-B BT");
+    text("GAME WORLD", 320, 110);
 
     rectMode(CENTER);
     rect(320, 210, 180, 40);
 
     fill(0);
     textSize(20);
+    textFont("OCR-A BT");
     text("Basic", 320, 210);
     fill(255);
     text("Catch Game = Press 'c'", 320, 260);
