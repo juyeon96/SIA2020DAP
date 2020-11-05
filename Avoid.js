@@ -27,6 +27,9 @@ function avoidGame() {
     }
   }
 
+  if(key == 'h')
+    selection = 0;
+
   if(gameover == 1) {
     background(0);
     textSize(65);
@@ -38,7 +41,7 @@ function avoidGame() {
 
   if((frameCount-now) % 60 == 0)
     time--;
-  
+
   if(time == 0){
     ballNum++;
     time = 10;
