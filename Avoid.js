@@ -3,11 +3,13 @@ function avoidGame() {
   textSize(30);
   textAlign(CENTER, CENTER);
   fill(0);
-  text('Score', 540, 20);
-  text('Time', 60, 20);
-  textSize(20);
-  text(score, 540, 50);
-  text(time, 60, 50);
+  textFont("Sugarpunch DEMO");
+  text('Score', 540, 30);
+  text('Time', 60, 30);
+  textSize(25);
+  textFont("Modern Love");
+  text(score, 540, 65);
+  text(time, 60, 65);
 
   for(i=0; i<ballNum; i++) {
     let power = createVector(random(-0.1, 0.1), random(-0.1, 0.1));

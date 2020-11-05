@@ -2,9 +2,11 @@ function catchGame() {
   textSize(30);
   textAlign(CENTER, CENTER);
   fill(0);
-  text('Score', 540, 20);
-  textSize(20);
-  text(score, 540, 50);
+  textFont("Sugarpunch DEMO");
+  text('Score', 540, 30);
+  textSize(25);
+  textFont("Modern Love");
+  text(score, 540, 65);
 
   for(i=0; i<ballNum; i++) {
     let power = createVector(random(-0.5, 0.5), random(-0.5, 0.5));
