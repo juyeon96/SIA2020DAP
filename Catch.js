@@ -7,7 +7,7 @@ function catchGame() {
   text(score, 540, 50);
 
   for(i=0; i<ballNum; i++) {
-    let power = createVector(random(-0.1, 0.1), random(-0.1, 0.1));
+    let power = createVector(random(-0.5, 0.5), random(-0.5, 0.5));
     particle[i].applyForce(power);
 
     fill(color[i][0], color[i][1], color[i][2]);
