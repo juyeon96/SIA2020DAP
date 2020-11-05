@@ -8,6 +8,7 @@ let sum;
 let time;
 let now;
 let gameover;
+let selection; // 0 = main, 1 = basic, 2 = catch, 3 = avoid
 
 function setup() {
   createCanvas(640, 360);
@@ -18,6 +19,7 @@ function setup() {
   sum = 0;
   time = 10;
   gameover = 0;
+  selection = 0;
 
   for(i=0; i<30; i++) {
     particle[i] = new Particle(random(20, width-20), random(20, height-20), random(3, 5));
@@ -29,7 +31,7 @@ function setup() {
 }
 
 function draw() {
-  if(dbool == 1) {
+  if(dbool == 1) { // d 모드
     background(255, 255, 255, 100);
     noStroke();
   }
@@ -38,21 +40,42 @@ function draw() {
     if(mouseIsPressed && key!= 'c') {
       noStroke();
     }
-    
+
     else {
       background(255, 255, 255, 20);
       stroke(0);
     }
   }
 
-  if(key == 'c')
-    catchGame();
-  
-  else if(key == 'a') {
-    avoidGame();
+  if(selection == 0) {
+    background(0);
+    fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(60);
+    text("Mover and Attractor", 320, 100);
+
+    rectMode(CENTER);
+    rect(320, 210, 180, 40);
+
+    fill(0);
+    textSize(20);
+    text("Basic", 320, 210);
+    fill(255);
+    text("Catch Game = Press 'c'", 320, 260);
+    text("Avoid Game = Press 'a'", 320, 300);
+
+    if(key == 'c') {
+      selection = 2;
+      background(255);
+    }
+
+    else if(key == 'a') {
+      selection = 3;
+      background(255);
+    }
   }
-  
-  else {
+
+  else if(selection == 1) {
     ballNum = 1;
     score = 0;
     sum = 0;
@@ -70,6 +93,12 @@ function draw() {
       particle[i].display();
     }
   }
+
+  else if(selection == 2)
+    catchGame();
+
+  else if(selection == 3)
+    avoidGame();
 }
 
 function keyTyped() {
@@ -119,5 +148,12 @@ function keyTyped() {
 
     else if(key == 'a')
       now = frameCount;
+  }
+}
+
+function mouseClicked() {
+  if(mouseX>230 && mouseX<410 && mouseY>180 && mouseY<220 && selection == 0) {
+    selection = 1;
+    background(255);
   }
 }
